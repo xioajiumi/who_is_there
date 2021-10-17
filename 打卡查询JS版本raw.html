@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" charset="utf-8">  
+<title>打卡监督</title> 
+</head>
+<body>
+<div style="width:500px">
+<input type="text" id="form" placeholder="此处粘贴信息...">
+<button onclick=search() class="button">查询本班同学</button>
+<button onclick=showStudent() class="button">查看本班名单</button>
+<p id="info"></p>
+</div>
+<script>
+
+	function showStudent(){
+	var txt="";
+	for (stu in students){
+		txt=txt+stu+"："+students[stu]+"<br>";
+	}
+	document.getElementById("info").innerHTML=txt;
+	}
+
+	function search(){
+	var x = document.getElementById("form").value;
+	var txt="";
+	for (stu in students){
+		if (x.search(stu) != -1 ){
+		txt=txt+stu+"："+students[stu]+"<br>";
+		}
+	}
+	document.getElementById("info").innerHTML="人员如下："+txt;	
+	
+	}
+	var students = {
+	
+	201931111113:"xxx",
+	2019801111111:"xxx",
+};
+		
+</script>
+<!-- 其实这些都是雕虫小计，向那些先驱致敬，🖖！-->
+<style>
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+	};
+</style>
+<style> 
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  background-color: #3CBC8D;
+  color: white;
+}
+</style>
+</body>
+</html>
